@@ -4,9 +4,11 @@ import * as crypto from 'crypto';
 
 const size = 128; // 12 words. Size equal to 256 is 24 words.
 
-export function generateMnemonicAndKeyPair() {
-    const mnemonic = bip39.generateMnemonic(size);
-
+export function generateKeyPair(mnemonicInput) {
+    let mnemonic = mnemonicInput;
+    if (!mnemonic) {
+        mnemonic = bip39.generateMnemonic(size);
+    }
     
     const seed = bip39.mnemonicToSeedSync(mnemonic);
     
