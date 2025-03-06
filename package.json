@@ -1,0 +1,17 @@
+{
+  "name": "ed25519-key-generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bip39": "3.1.0",
+    "crypto": "1.0.1",
+    "sodium-native": "4.3.3"
+  }
+}
