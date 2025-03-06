@@ -4,8 +4,20 @@ import * as crypto from 'crypto';
 
 const size = 128; // 12 words. Size equal to 256 is 24 words.
 
+export function sanitizeMnemonic(mnemonic) {
+    // TODO: Implement better sanitization by checking if 
+    //  - All resulting words are valid
+    //  - There are no invalid characters
+    //  - There are exactly 12 words
+    //  - etc.
+    if (!mnemonic) {
+        return undefined;
+    }
+    return mnemonic.toLowerCase().trim().split(' ').filter(word => word.trim()).join(' ');
+}
+
 export function generateKeyPair(mnemonicInput) {
-    let mnemonic = mnemonicInput;
+    let mnemonic = sanitizeMnemonic(mnemonicInput);
     if (!mnemonic) {
         mnemonic = bip39.generateMnemonic(size);
     }
